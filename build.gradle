@@ -1,0 +1,50 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'war'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'mysql:mysql-connector-java'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Mapstruct
+    implementation 'org.mapstruct:mapstruct:1.4.1.Final'
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.4.1.Final"
+    testImplementation 'org.mapstruct:mapstruct:1.4.1.Final'
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:1.4.1.Final"
+
+    // QueryDSL
+    implementation 'com.querydsl:querydsl-jpa'
+
+    implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    implementation 'io.swagger:swagger-annotations:1.5.21'
+    implementation 'io.swagger:swagger-models:1.5.21'
+
+    implementation 'org.hibernate.validator:hibernate-validator:6.1.5.Final'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.6'
+
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
